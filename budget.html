@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Budget</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+<nav>
+    <h2>StudentHub</h2>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="accommodation.html">Accommodation</a></li>
+        <li><a href="budget.html">Budget</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<h2 style="text-align:center;">Budget Calculator 💰</h2>
+
+<div style="text-align:center;">
+<input type="number" id="income" placeholder="Income"><br>
+<input type="number" id="expense" placeholder="Expenses"><br>
+
+<button id="calcBtn" type="button">Calculate</button>
+
+<h3 id="result"></h3>
+</div>
+<script>
+document.getElementById("calcBtn").onclick = function() {
+
+    console.log("Button clicked");
+
+    let income = parseFloat(document.getElementById("income").value);
+    let expense = parseFloat(document.getElementById("expense").value);
+
+    if(isNaN(income) || isNaN(expense)){
+        alert("Enter values!");
+        return;
+    }
+
+    let savings = income - expense;
+
+    document.getElementById("result").innerHTML = "Savings: £" + savings;
+};
+</script>
+</body>
+</html>
