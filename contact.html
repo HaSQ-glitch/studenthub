@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+<nav>
+    <h2>StudentHub</h2>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="accommodation.html">Accommodation</a></li>
+        <li><a href="budget.html">Budget</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<h2 style="text-align:center;">Contact Us 📩</h2>
+
+<form id="contactForm" style="text-align:center;">
+    <input type="text" id="name" placeholder="Name"><br>
+    <input type="text" id="email" placeholder="Email"><br>
+    <input type="text" id="phone" placeholder="Phone"><br>
+    <textarea id="message" placeholder="Message"></textarea><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+<h3 id="output" style="text-align:center;"></h3>
+
+<script>
+$("#contactForm").submit(function(e){
+    e.preventDefault();
+
+    let name = $("#name").val();
+    let email = $("#email").val();
+
+    if(name === "" || email === ""){
+        alert("All fields required!");
+        return;
+    }
+
+    if(!email.includes("@")){
+        alert("Invalid email!");
+        return;
+    }
+
+    // Save data (extra feature)
+    localStorage.setItem("username", name);
+
+    $("#output").hide().html("Thanks " + name + " 😊").fadeIn(1000);
+});
+
+// Load saved user
+$(document).ready(function(){
+    let saved = localStorage.getItem("username");
+    if(saved){
+        $("#output").html("Welcome back " + saved);
+    }
+});
+</script>
+
+</body>
+</html>
