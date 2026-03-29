@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resources</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+<nav>
+    <h2>StudentHub</h2>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="accommodation.html">Accommodation</a></li>
+        <li><a href="budget.html">Budget</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<h2 style="text-align:center;">Study Resources 📚</h2>
+
+<button id="toggleBtn">Show Study Tips</button>
+
+<div id="tips" style="display:none;">
+    <div class="card">
+        <p>✔ Study daily</p>
+        <p>✔ Practice coding</p>
+        <p>✔ Revise weekly</p>
+    </div>
+</div>
+
+<script>
+$("#toggleBtn").click(function(){
+    $("#tips").slideToggle();
+});
+</script>
+
+</body>
+</html>
